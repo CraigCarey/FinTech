@@ -22,7 +22,7 @@ def main():
 
         if epic:
             print(epic.text.strip())
-            f.writelines(epic.text.strip())
+            f.write(f"{epic.text.strip()}\n")
 
 
 if __name__ == "__main__":
