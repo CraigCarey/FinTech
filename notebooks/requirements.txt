@@ -1,0 +1,8 @@
+beautifulsoup4
+html5lib
+jupyter
+pandas
+requests
+requests_html
+yahoo_fin
+yfinance
