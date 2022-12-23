@@ -1,3 +1,13 @@
 black
 cmake_format
 pre-commit
+beautifulsoup4
+fundamentalanalysis
+html5lib
+jupyter
+openpyxl
+pandas
+requests
+requests_html
+yahoo_fin
+yfinance
