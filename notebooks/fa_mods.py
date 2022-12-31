@@ -45,7 +45,7 @@ def tradable_companies(api_key):
     return df
 
 
-def income_statement_growth(ticker, api_key, limit=0):
+def income_statement_growth(ticker, api_key, limit=0, period="annual"):
     """
     Description
     ----
@@ -69,7 +69,7 @@ def income_statement_growth(ticker, api_key, limit=0):
 
     URL = (
         f"https://financialmodelingprep.com/api/v3/income-statement-growth/{ticker}"
-        f"?limit={limit}&apikey={api_key}"
+        f"?period={period}&limit={limit}&apikey={api_key}"
     )
 
     try:

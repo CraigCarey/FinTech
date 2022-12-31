@@ -1,12 +1,13 @@
+beautifulsoup4
 black
 cmake_format
-pre-commit
-beautifulsoup4
+fmpsdk
 fundamentalanalysis
 html5lib
 jupyter
 openpyxl
 pandas
+pre-commit
 requests
 requests_html
 yahoo_fin

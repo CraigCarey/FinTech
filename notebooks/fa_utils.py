@@ -6,41 +6,107 @@ import pandas as pd
 
 
 def get_ticker_data(ticker: str, api_key: str):
+    """
+    income_statement
+    income_statement_quarterly
+    income_statement_growth
+    cashflow_statement
+    cashflow_statement_quarterly
+    cashflow_statement_growth
+    balance_sheet_statement
+    balance_sheet_statement_quarterly
+    balance_sheet_statement_growth
+    discounted_cash_flow
+    advanced_discounted_cash_flow
+    advanced_levered_discounted_cash_flow
+    key_metrics
+    key_metrics_quarterly
+    key_metrics_ttm
+    financial_ratios
+    financial_ratios_quarterly
+    financial_ratios_ttm
+    financial_statement_growth
+    owner_earnings
+    enterprise_values
+    dividends
+    scores
+    """
     data = {}
+
     data["timestamp"] = datetime.timestamp(datetime.now())
+
     data["income_statement"] = fa.income_statement(
         ticker, api_key, period="annual"
     ).drop(labels=["calendarYear", "period", "link", "finalLink"], axis=0)
+
+    data["income_statement_quarterly"] = fa.income_statement(
+        ticker, api_key, period="quarter"
+    ).drop(labels=["calendarYear", "period", "link", "finalLink"], axis=0)
+
     data["income_statement_growth"] = famods.income_statement_growth(ticker, api_key)
+
     data["cashflow_statement"] = fa.cash_flow_statement(
         ticker, api_key, period="annual"
     ).drop(labels=["calendarYear", "period", "link", "finalLink"], axis=0)
+
+    data["cashflow_statement_quarterly"] = fa.cash_flow_statement(
+        ticker, api_key, period="quarter"
+    ).drop(labels=["calendarYear", "period", "link", "finalLink"], axis=0)
+
     data["cashflow_statement_growth"] = famods.cash_flow_statement_growth(
         ticker, api_key
     )
+
     data["balance_sheet_statement"] = fa.balance_sheet_statement(
         ticker, api_key, period="annual"
     ).drop(labels=["calendarYear", "period", "link", "finalLink"], axis=0)
+
+    data["balance_sheet_statement_quarterly"] = fa.balance_sheet_statement(
+        ticker, api_key, period="quarter"
+    ).drop(labels=["calendarYear", "period", "link", "finalLink"], axis=0)
+
     data["balance_sheet_statement_growth"] = famods.balance_sheet_statement_growth(
         ticker, api_key
     )
+
     data["discounted_cash_flow"] = famods.discounted_cash_flow(ticker, api_key)
+
     data["advanced_discounted_cash_flow"] = famods.advanced_discounted_cash_flow(
         ticker, api_key
     )
+
     data[
         "advanced_levered_discounted_cash_flow"
     ] = famods.advanced_levered_discounted_cash_flow(ticker, api_key)
+
     data["key_metrics"] = fa.key_metrics(ticker, api_key, period="annual").drop(
         ["period"]
     )
+
+    data["key_metrics_quarterly"] = fa.key_metrics(
+        ticker, api_key, period="quarter"
+    ).drop(["period"])
+
+    data["key_metrics_ttm"] = fa.key_metrics(ticker, api_key, period="annual", TTM=True)
+
     data["financial_ratios"] = fa.financial_ratios(
         ticker, api_key, period="annual"
     ).drop(["period"])
+
+    data["financial_ratios_quarterly"] = fa.financial_ratios(
+        ticker, api_key, period="quarter"
+    ).drop(["period"])
+
+    data["financial_ratios_ttm"] = fa.financial_ratios(
+        ticker, api_key, period="annual", TTM=True
+    )
+
     data["growth"] = fa.financial_statement_growth(
         ticker, api_key, period="annual"
     ).drop(["period"])
+
     data["owner_earnings"] = famods.owner_earnings(ticker, api_key)
+
     data["enterprise_values"] = famods.enterprise_values(ticker, api_key)
 
     try:
