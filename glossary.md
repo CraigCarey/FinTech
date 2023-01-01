@@ -28,6 +28,10 @@ Amount you'll receive per share per year
 
 DR / SP
 
+### Equity
+
+The amount of money that would be returned to a company's shareholders if all of the assets were liquidated and all of the company's debt was paid off in the case of liquidation
+
 ### Debt/Equity Ratio
 
 Sum up anything mentioning debt in the liabilities section of the balance sheet
@@ -57,3 +61,8 @@ Net Income / Equity
 Total Current Assets / Total Current Liabilities
 Paid in / out over next 12 months
 Gives good representation of short-term health, e.g. will the company need to take out more debt, or issue shares
+
+### PEG Ratio
+
+(P/E) ratio divided by the growth rate of its earnings for a specified time period
+PE / EPS Growth
